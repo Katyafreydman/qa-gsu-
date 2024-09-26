@@ -1,0 +1,1687 @@
+{
+	"info": {
+		"_postman_id": "f151e3bf-d83b-4991-9d8b-40b1b3882eb9",
+		"name": "cook-controller",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21370085",
+		"_collection_link": "https://martian-capsule-451786.postman.co/workspace/Team-Workspace~4a127dd2-99dd-4d04-8d92-0ad20fb6c032/collection/21370085-f151e3bf-d83b-4991-9d8b-40b1b3882eb9?action=share&source=collection_link&creator=21370085"
+	},
+	"item": [
+		{
+			"name": "/getDishes",
+			"item": [
+				{
+					"name": "200 creation",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "ru-RU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"products\": [\r\n    \"кефир\",\r\n\"молоко\"\r\n  ],\r\n  \"refresh\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://cooking-exksifnzaxjuxel-api-qa.gsu-ai.com/getDishes",
+							"protocol": "https",
+							"host": [
+								"cooking-exksifnzaxjuxel-api-qa",
+								"gsu-ai",
+								"com"
+							],
+							"path": [
+								"getDishes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "400 too long product name",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "ru-RU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"products\": [\r\n    \"авпрароаопваплвоплоавоплвоаповлаплваоплвоапловалопждвоаплважпвоплокцокшщуцшкщшуцщкцукнегукшцщдлапалвдыжфлавовалылвадылалщазкуепоитпатиотпаидлмдлвтмдлтвалидлатитпаидлтпатилдвьмдсьыждбсджывмжабмажмждьипадлтадтридат длтпидтпатидлтпдлитпадлитилтаыдиплтлдвытдлтидлывтидлтвытидлавтыилдтидлвтидлвтивдлатидвлатилдватилдв\",\r\n\"молоко\"\r\n  ],\r\n  \"refresh\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://cooking-exksifnzaxjuxel-api-qa.gsu-ai.com/getDishes",
+							"protocol": "https",
+							"host": [
+								"cooking-exksifnzaxjuxel-api-qa",
+								"gsu-ai",
+								"com"
+							],
+							"path": [
+								"getDishes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "400 more than 50 products",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "ru-RU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"products\": [\r\n    \"тыква\", \r\n     \"тыква\",\r\n      \"тыква\",\r\n       \"тыква\",\r\n        \"тыква\",\r\n         \"тыква\",\r\n          \"тыква\",\r\n           \"тыква\",\r\n            \"тыква\",\r\n             \"тыква\",\r\n              \"тыква\",\r\n               \"тыква\",\r\n                \"тыква\",\r\n                 \"тыква\",\r\n\"тыква\", \r\n     \"тыква\",\r\n      \"тыква\",\r\n       \"тыква\",\r\n        \"тыква\",\r\n         \"тыква\",\r\n          \"тыква\",\r\n           \"тыква\",\r\n            \"тыква\",\r\n             \"тыква\",\r\n              \"тыква\",\r\n               \"тыква\",\r\n                \"тыква\",\r\n                 \"тыква\",\"тыква\", \r\n     \"тыква\",\r\n      \"тыква\",\r\n       \"тыква\",\r\n        \"тыква\",\r\n         \"тыква\",\r\n          \"тыква\",\r\n           \"тыква\",\r\n            \"тыква\",\r\n             \"тыква\",\r\n              \"тыква\",\r\n               \"тыква\",\r\n                \"тыква\",\r\n                 \"тыква\",\"тыква\", \r\n     \"тыква\",\r\n      \"тыква\",\r\n       \"тыква\",\r\n        \"тыква\",\r\n         \"тыква\",\r\n          \"тыква\",\r\n           \"тыква\",\r\n            \"тыква\",\r\n             \"тыква\",\r\n              \"тыква\",\r\n               \"тыква\",\r\n                \"тыква\",\r\n                 \"тыква\",\"тыква\", \r\n     \"тыква\",\r\n      \"тыква\",\r\n       \"тыква\",\r\n        \"тыква\",\r\n         \"тыква\",\r\n          \"тыква\",\r\n           \"тыква\",\r\n            \"тыква\",\r\n             \"тыква\",\r\n              \"тыква\",\r\n               \"тыква\",\r\n                \"тыква\",\r\n                 \"тыква\",\r\n\"молоко\"\r\n  ],\r\n  \"refresh\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://cooking-exksifnzaxjuxel-api-qa.gsu-ai.com/getDishes",
+							"protocol": "https",
+							"host": [
+								"cooking-exksifnzaxjuxel-api-qa",
+								"gsu-ai",
+								"com"
+							],
+							"path": [
+								"getDishes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "400 less than 2 products",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "ru-RU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"products\": [\r\n    \"кефир\",\r\n\"молоко\"\r\n  ],\r\n  \"refresh\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://cooking-exksifnzaxjuxel-api-qa.gsu-ai.com/getDishes",
+							"protocol": "https",
+							"host": [
+								"cooking-exksifnzaxjuxel-api-qa",
+								"gsu-ai",
+								"com"
+							],
+							"path": [
+								"getDishes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "200 similar products",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "ru-RU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"products\": [\r\n    \"кефир\",\r\n\"кефир\"\r\n  ],\r\n  \"refresh\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://cooking-exksifnzaxjuxel-api-qa.gsu-ai.com/getDishes",
+							"protocol": "https",
+							"host": [
+								"cooking-exksifnzaxjuxel-api-qa",
+								"gsu-ai",
+								"com"
+							],
+							"path": [
+								"getDishes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "200 space !",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "ru-RU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"products\": [\r\n    \" \",\r\n\" \"\r\n  ],\r\n  \"refresh\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://cooking-exksifnzaxjuxel-api-qa.gsu-ai.com/getDishes",
+							"protocol": "https",
+							"host": [
+								"cooking-exksifnzaxjuxel-api-qa",
+								"gsu-ai",
+								"com"
+							],
+							"path": [
+								"getDishes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "500 without par",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "ru-RU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"products\": [\r\n    \"\",\r\n\"\"\r\n  ],\r\n  \"refresh\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://cooking-exksifnzaxjuxel-api-qa.gsu-ai.com/getDishes",
+							"protocol": "https",
+							"host": [
+								"cooking-exksifnzaxjuxel-api-qa",
+								"gsu-ai",
+								"com"
+							],
+							"path": [
+								"getDishes"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "404 link",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "ru-RU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"products\": [\r\n    \"кефир\",\r\n\"молоко\"\r\n  ],\r\n  \"refresh\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://cooking-exksifnzaxjuxel-api-qa.gsu-ai.com/getDishe",
+							"protocol": "https",
+							"host": [
+								"cooking-exksifnzaxjuxel-api-qa",
+								"gsu-ai",
+								"com"
+							],
+							"path": [
+								"getDishe"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "/getDishesByWishes",
+			"item": [
+				{
+					"name": "200",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "ru-RU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"cuisines\": [\r\n    \"AFRICAN\"\r\n  ],\r\n  \"diets\": [\r\n    \"DAIRY_FREE\"\r\n  ],\r\n  \"levels\": [\r\n    \"ANY\"\r\n  ],\r\n  \"peopleCount\": 3,\r\n  \"times\": [\r\n    \"ANY\"\r\n  ],\r\n  \"types\": [\r\n    \"ANY\"\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://cooking-exksifnzaxjuxel-api-qa.gsu-ai.com/getDishesByWishes",
+							"protocol": "https",
+							"host": [
+								"cooking-exksifnzaxjuxel-api-qa",
+								"gsu-ai",
+								"com"
+							],
+							"path": [
+								"getDishesByWishes"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "200 peopleCount 20",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"peopleCount не превышает 20\", function () {\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"    var requestBody = pm.request.body.raw; // Получаем сырой запрос\r",
+									"    var jsonData = JSON.parse(requestBody); // Парсим JSON\r",
+									"    pm.expect(jsonData.peopleCount).to.be.at.most(20); // Проверяем, что peopleCount <= 20\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "ru-RU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"cuisines\": [\r\n    \"AFRICAN\"\r\n  ],\r\n  \"diets\": [\r\n    \"DAIRY_FREE\"\r\n  ],\r\n  \"levels\": [\r\n    \"ANY\"\r\n  ],\r\n  \"peopleCount\": 20,\r\n  \"times\": [\r\n    \"ANY\"\r\n  ],\r\n  \"types\": [\r\n    \"ANY\"\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://cooking-exksifnzaxjuxel-api-qa.gsu-ai.com/getDishesByWishes",
+							"protocol": "https",
+							"host": [
+								"cooking-exksifnzaxjuxel-api-qa",
+								"gsu-ai",
+								"com"
+							],
+							"path": [
+								"getDishesByWishes"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "200 peopleCount  more than 20",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "ru-RU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"cuisines\": [\r\n    \"AFRICAN\"\r\n  ],\r\n  \"diets\": [\r\n    \"DAIRY_FREE\"\r\n  ],\r\n  \"levels\": [\r\n    \"ANY\"\r\n  ],\r\n  \"peopleCount\": 21,\r\n  \"times\": [\r\n    \"ANY\"\r\n  ],\r\n  \"types\": [\r\n    \"ANY\"\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://cooking-exksifnzaxjuxel-api-qa.gsu-ai.com/getDishesByWishes",
+							"protocol": "https",
+							"host": [
+								"cooking-exksifnzaxjuxel-api-qa",
+								"gsu-ai",
+								"com"
+							],
+							"path": [
+								"getDishesByWishes"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "400 ANY other cuisines",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "ru-RU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"cuisines\": [\r\n    \"ANY\", \"CHINESE\"\r\n  ],\r\n  \"diets\": [\r\n    \"VEGAN\"\r\n  ],\r\n  \"levels\": [\r\n    \"BEGINNER\"\r\n  ],\r\n  \"peopleCount\": 5,\r\n  \"times\": [\r\n    \"LESS_15\"\r\n  ],\r\n  \"types\": [\r\n    \"DINNER\"\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://cooking-exksifnzaxjuxel-api-qa.gsu-ai.com/getDishesByWishes",
+							"protocol": "https",
+							"host": [
+								"cooking-exksifnzaxjuxel-api-qa",
+								"gsu-ai",
+								"com"
+							],
+							"path": [
+								"getDishesByWishes"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "400 ANY other diets",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "ru-RU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"cuisines\": [\r\n    \"ANY\", \"CHINESE\"\r\n  ],\r\n  \"diets\": [\r\n    \"VEGAN\"\r\n  ],\r\n  \"levels\": [\r\n    \"BEGINNER\"\r\n  ],\r\n  \"peopleCount\": 5,\r\n  \"times\": [\r\n    \"LESS_15\"\r\n  ],\r\n  \"types\": [\r\n    \"DINNER\"\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://cooking-exksifnzaxjuxel-api-qa.gsu-ai.com/getDishesByWishes",
+							"protocol": "https",
+							"host": [
+								"cooking-exksifnzaxjuxel-api-qa",
+								"gsu-ai",
+								"com"
+							],
+							"path": [
+								"getDishesByWishes"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "400 ANY other  levels",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "ru-RU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"cuisines\": [\r\n    \"CHINESE\"\r\n  ],\r\n  \"diets\": [\r\n    \"VEGAN\"\r\n  ],\r\n  \"levels\": [\r\n    \"ANY\", \"KITCHEN_GOD\"\r\n  ],\r\n  \"peopleCount\": 5,\r\n  \"times\": [\r\n    \"LESS_15\"\r\n  ],\r\n  \"types\": [\r\n    \"DINNER\"\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://cooking-exksifnzaxjuxel-api-qa.gsu-ai.com/getDishesByWishes",
+							"protocol": "https",
+							"host": [
+								"cooking-exksifnzaxjuxel-api-qa",
+								"gsu-ai",
+								"com"
+							],
+							"path": [
+								"getDishesByWishes"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "400 ANY other times",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "ru-RU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"cuisines\": [\r\n    \"AFRICAN\"\r\n  ],\r\n  \"diets\": [\r\n    \"DAIRY_FREE\"\r\n  ],\r\n  \"levels\": [\r\n    \"BEGINNER\"\r\n  ],\r\n  \"peopleCount\": 3,\r\n  \"times\": [\r\n    \"ANY\", \"LESS_15\"\r\n  ],\r\n  \"types\": [\r\n    \"DINNER\"\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://cooking-exksifnzaxjuxel-api-qa.gsu-ai.com/getDishesByWishes",
+							"protocol": "https",
+							"host": [
+								"cooking-exksifnzaxjuxel-api-qa",
+								"gsu-ai",
+								"com"
+							],
+							"path": [
+								"getDishesByWishes"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "200 al cuisines !",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "ru-RU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"cuisines\": [\r\n    \"AFRICAN\", \"CHINESE\", \"MEXICAN\",\"INDIAN\",\"JAPANESE\",\"THAI\",\"SPANISH\",\"FRENCH\"\r\n  ],\r\n  \"diets\": [\r\n    \"DAIRY_FREE\"\r\n  ],\r\n  \"levels\": [\r\n    \"BEGINNER\"\r\n  ],\r\n  \"peopleCount\": 3,\r\n  \"times\": [\r\n    \"LESS_15\"\r\n  ],\r\n  \"types\": [\r\n    \"DINNER\"\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://cooking-exksifnzaxjuxel-api-qa.gsu-ai.com/getDishesByWishes",
+							"protocol": "https",
+							"host": [
+								"cooking-exksifnzaxjuxel-api-qa",
+								"gsu-ai",
+								"com"
+							],
+							"path": [
+								"getDishesByWishes"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "400 zero people count",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "ru-RU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"cuisines\": [\r\n    \"ANY\"\r\n  ],\r\n  \"diets\": [\r\n    \"DAIRY_FREE\"\r\n  ],\r\n  \"levels\": [\r\n    \"ANY\"\r\n  ],\r\n  \"peopleCount\": 0,\r\n  \"times\": [\r\n    \"ANY\"\r\n  ],\r\n  \"types\": [\r\n    \"ANY\"\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://cooking-exksifnzaxjuxel-api-qa.gsu-ai.com/getDishesByWishes",
+							"protocol": "https",
+							"host": [
+								"cooking-exksifnzaxjuxel-api-qa",
+								"gsu-ai",
+								"com"
+							],
+							"path": [
+								"getDishesByWishes"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "200 change cuisines",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "ru-RU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"cuisines\": [\r\n    \"CHINESE\"\r\n  ],\r\n  \"diets\": [\r\n    \"DAIRY_FREE\"\r\n  ],\r\n  \"levels\": [\r\n    \"ANY\"\r\n  ],\r\n  \"peopleCount\": 3,\r\n  \"refresh\": true,\r\n  \"times\": [\r\n    \"ANY\"\r\n  ],\r\n  \"types\": [\r\n    \"ANY\"\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://cooking-exksifnzaxjuxel-api-qa.gsu-ai.com/getDishesByWishes",
+							"protocol": "https",
+							"host": [
+								"cooking-exksifnzaxjuxel-api-qa",
+								"gsu-ai",
+								"com"
+							],
+							"path": [
+								"getDishesByWishes"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "200 change diets",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "ru-RU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"cuisines\": [\r\n    \"CHINESE\"\r\n  ],\r\n  \"diets\": [\r\n    \"VEGETARIAN\"\r\n  ],\r\n  \"levels\": [\r\n    \"ANY\"\r\n  ],\r\n  \"peopleCount\": 4,\r\n  \"refresh\": true,\r\n  \"times\": [\r\n    \"ANY\"\r\n  ],\r\n  \"types\": [\r\n    \"ANY\"\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://cooking-exksifnzaxjuxel-api-qa.gsu-ai.com/getDishesByWishes",
+							"protocol": "https",
+							"host": [
+								"cooking-exksifnzaxjuxel-api-qa",
+								"gsu-ai",
+								"com"
+							],
+							"path": [
+								"getDishesByWishes"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "200 change times",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "ru-RU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"cuisines\": [\r\n    \"CHINESE\"\r\n  ],\r\n  \"diets\": [\r\n    \"DAIRY_FREE\"\r\n  ],\r\n  \"levels\": [\r\n    \"BEGINNER\"\r\n  ],\r\n  \"peopleCount\": 4,\r\n  \"refresh\": true,\r\n  \"times\": [\r\n    \"ANY\"\r\n  ],\r\n  \"types\": [\r\n    \"ANY\"\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://cooking-exksifnzaxjuxel-api-qa.gsu-ai.com/getDishesByWishes",
+							"protocol": "https",
+							"host": [
+								"cooking-exksifnzaxjuxel-api-qa",
+								"gsu-ai",
+								"com"
+							],
+							"path": [
+								"getDishesByWishes"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "400 msg too big",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "ru-RU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"cuisines\": [\r\n    \"CHINESE\"\r\n  ],\r\n  \"diets\": [\r\n    \"DAIRY_FREE\"\r\n  ],\r\n  \"levels\": [\r\n    \"ANY\"\r\n  ],\r\n  \"peopleCount\": 40,\r\n  \"refresh\": true,\r\n  \"times\": [\r\n    \"ANY\"\r\n  ],\r\n  \"types\": [\r\n    \"ANY\"\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://cooking-exksifnzaxjuxel-api-qa.gsu-ai.com/getDishesByWishes",
+							"protocol": "https",
+							"host": [
+								"cooking-exksifnzaxjuxel-api-qa",
+								"gsu-ai",
+								"com"
+							],
+							"path": [
+								"getDishesByWishes"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "404 ",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "ru-RU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"cuisines\": [\r\n    \"AFRICAN\"\r\n  ],\r\n  \"diets\": [\r\n    \"DAIRY_FREE\"\r\n  ],\r\n  \"levels\": [\r\n    \"ANY\"\r\n  ],\r\n  \"peopleCount\": 3,\r\n  \"times\": [\r\n    \"ANY\"\r\n  ],\r\n  \"types\": [\r\n    \"ANY\"\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://cooking-exksifnzaxjuxel-api-qa.gsu-ai.com/getDishesByWishe",
+							"protocol": "https",
+							"host": [
+								"cooking-exksifnzaxjuxel-api-qa",
+								"gsu-ai",
+								"com"
+							],
+							"path": [
+								"getDishesByWishe"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "400  too large amount msg",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Verify the length of response data\r",
+									"pm.test(\"The length of response data must be greater than zero\", function () {\r",
+									"    const responseData = pm.response.json();\r",
+									"    pm.expect(responseData.length).to.be.greaterThan(0, \"Response data should not be empty\");\r",
+									"});\r",
+									"pm.test(\"peopleCount не превышает 20\", function () {\r",
+									"    var responseJson = pm.response.json(); // Получаем JSON-ответ\r",
+									"    pm.expect(responseJson.peopleCount).to.be.below(21); // Проверяем, что peopleCount < 21\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "ru-RU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"cuisines\": [\r\n    \"CHINESE\"\r\n  ],\r\n  \"diets\": [\r\n    \"DAIRY_FREE\"\r\n  ],\r\n  \"levels\": [\r\n    \"ANY\"\r\n  ],\r\n  \"peopleCount\": 40,\r\n  \"refresh\": true,\r\n  \"times\": [\r\n    \"ANY\"\r\n  ],\r\n  \"types\": [\r\n    \"ANY\"\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://cooking-exksifnzaxjuxel-api-qa.gsu-ai.com/getDishesByWishes",
+							"protocol": "https",
+							"host": [
+								"cooking-exksifnzaxjuxel-api-qa",
+								"gsu-ai",
+								"com"
+							],
+							"path": [
+								"getDishesByWishes"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "/getProducts",
+			"item": [
+				{
+					"name": "200 file jpeg",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "ru-RU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "0bbSQK1fP/images (2).jpeg"
+								},
+								{
+									"key": "text",
+									"value": "QA",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://cooking-exksifnzaxjuxel-api-qa.gsu-ai.com/getProducts",
+							"protocol": "https",
+							"host": [
+								"cooking-exksifnzaxjuxel-api-qa",
+								"gsu-ai",
+								"com"
+							],
+							"path": [
+								"getProducts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "400 file not image",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "ru-RU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "postman-cloud:///1ef6eea1-f02e-4220-b133-83eea5e36f06"
+								},
+								{
+									"key": "text",
+									"value": "QA",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://cooking-exksifnzaxjuxel-api-qa.gsu-ai.com/getProducts",
+							"protocol": "https",
+							"host": [
+								"cooking-exksifnzaxjuxel-api-qa",
+								"gsu-ai",
+								"com"
+							],
+							"path": [
+								"getProducts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "400 file not image Exception",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "ru-RU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "k2X-FMc50/белая 2.webp"
+								},
+								{
+									"key": "text",
+									"value": "QA",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://cooking-exksifnzaxjuxel-api-qa.gsu-ai.com/getProducts",
+							"protocol": "https",
+							"host": [
+								"cooking-exksifnzaxjuxel-api-qa",
+								"gsu-ai",
+								"com"
+							],
+							"path": [
+								"getProducts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "200 file png",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "ru-RU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "text",
+									"value": "gj",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "postman-cloud:///1ef5fa86-f74e-4150-911f-e2e331a30a1e"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://cooking-exksifnzaxjuxel-api-qa.gsu-ai.com/getProducts",
+							"protocol": "https",
+							"host": [
+								"cooking-exksifnzaxjuxel-api-qa",
+								"gsu-ai",
+								"com"
+							],
+							"path": [
+								"getProducts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "413 too large jpg",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "ru-RU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "text",
+									"value": "qa",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "postman-cloud:///1ef5f9fd-b64f-4480-9c2a-2e7720233ce2"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://cooking-exksifnzaxjuxel-api-qa.gsu-ai.com/getProducts",
+							"protocol": "https",
+							"host": [
+								"cooking-exksifnzaxjuxel-api-qa",
+								"gsu-ai",
+								"com"
+							],
+							"path": [
+								"getProducts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "413 too large png",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 413\", function () {\r",
+									"    pm.response.to.have.status(413);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "ru-RU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "text",
+									"value": "we",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "postman-cloud:///1ef5fa90-7dea-4c00-8265-e1dc74d8674c"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://cooking-exksifnzaxjuxel-api-qa.gsu-ai.com/getProducts",
+							"protocol": "https",
+							"host": [
+								"cooking-exksifnzaxjuxel-api-qa",
+								"gsu-ai",
+								"com"
+							],
+							"path": [
+								"getProducts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "200 png too small !",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "ru-RU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "NVL_OwRqD/яб.png"
+								},
+								{
+									"key": "text",
+									"value": "QA",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://cooking-exksifnzaxjuxel-api-qa.gsu-ai.com/getProducts",
+							"protocol": "https",
+							"host": [
+								"cooking-exksifnzaxjuxel-api-qa",
+								"gsu-ai",
+								"com"
+							],
+							"path": [
+								"getProducts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "404 link",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "ru-RU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "text",
+									"value": "qa",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "postman-cloud:///1ef5f9fd-b64f-4480-9c2a-2e7720233ce2"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://cooking-exksifnzaxjuxel-api-qa.gsu-ai.com/getProduct",
+							"protocol": "https",
+							"host": [
+								"cooking-exksifnzaxjuxel-api-qa",
+								"gsu-ai",
+								"com"
+							],
+							"path": [
+								"getProduct"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "400 No file",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "ru-RU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "text",
+									"value": "qa",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "https://cooking-exksifnzaxjuxel-api-qa.gsu-ai.com/getProducts",
+							"protocol": "https",
+							"host": [
+								"cooking-exksifnzaxjuxel-api-qa",
+								"gsu-ai",
+								"com"
+							],
+							"path": [
+								"getProducts"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "/getRecipe",
+			"item": [
+				{
+					"name": "200 products",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "ru-RU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"dishName\": \"string\",\r\n  \"products\": [\r\n    \"кефир\",\r\n\"мука\"\r\n  ],\r\n  \"refresh\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://cooking-exksifnzaxjuxel-api-qa.gsu-ai.com/getRecipe",
+							"protocol": "https",
+							"host": [
+								"cooking-exksifnzaxjuxel-api-qa",
+								"gsu-ai",
+								"com"
+							],
+							"path": [
+								"getRecipe"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "500 without products !",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "ru-RU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"dishName\": \"string\",\r\n  \"products\": [\r\n    \"\",\r\n\"\"\r\n  ],\r\n  \"refresh\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://cooking-exksifnzaxjuxel-api-qa.gsu-ai.com/getRecipe",
+							"protocol": "https",
+							"host": [
+								"cooking-exksifnzaxjuxel-api-qa",
+								"gsu-ai",
+								"com"
+							],
+							"path": [
+								"getRecipe"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "200 dish name",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "ru-RU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"dishName\": \"Блинчики с кефиром\",\r\n  \"products\": [\r\n  \"Мука пшеничная (200г)\", \"Кефир (300мл)\", \"Соль (1/2 ч.л.)\", \"Яйцо (1 шт.)\"\r\n  ],\r\n  \"refresh\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://cooking-exksifnzaxjuxel-api-qa.gsu-ai.com/getRecipe",
+							"protocol": "https",
+							"host": [
+								"cooking-exksifnzaxjuxel-api-qa",
+								"gsu-ai",
+								"com"
+							],
+							"path": [
+								"getRecipe"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "400 too long name",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "ru-RU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"dishName\": \"ыек\",\r\n  \"products\": [\r\n    \"ыфваовыаооываыовалывалдыоавлоывалоыпоещпщкркилимлилоиоавилоалолвоаыопвалолоавтитмтпарпрпррваыадылоавлыовлдаоывоаыловалоыдлвфоадлывофалоыфдлвоалдовыалдодлвыфоалоыв лль ыо ваоываоыл лы оалоывлоа лыовал оацзшоошкугещшугкешгще гун  нг еуне гук неугк неу гку к кку   кгшушкешгкугешгкушгеукгеукешукцгешуцгкгешуцкешгушцкгешукгешукгешкугопвоаповапукшпшгещшцокураокудпжекопкоеку\",\r\n\"мука\"\r\n  ],\r\n  \"refresh\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://cooking-exksifnzaxjuxel-api-qa.gsu-ai.com/getRecipe",
+							"protocol": "https",
+							"host": [
+								"cooking-exksifnzaxjuxel-api-qa",
+								"gsu-ai",
+								"com"
+							],
+							"path": [
+								"getRecipe"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "400 more than 50 products",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "ru-RU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"dishName\": \"string\",\r\n  \"products\": [\r\n    \"кефир\",\r\n    \"кефир\",\r\n    \"кефир\",\r\n    \"кефир\",\r\n    \"кефир\",\r\n    \"кефир\",\r\n    \"кефир\",\r\n    \"кефир\",\r\n    \"кефир\",\r\n    \"кефир\",\r\n    \"кефир\",\r\n    \"кефир\",\r\n    \"кефир\",\r\n    \"кефир\",\r\n    \"кефир\",\r\n    \"кефир\",\r\n    \"кефир\",\r\n    \"кефир\",\r\n    \"кефир\",\r\n    \"кефир\",\r\n    \"кефир\",\r\n    \"кефир\",\r\n    \"кефир\",\r\n    \"кефир\",\r\n    \"кефир\",\r\n    \"кефир\",\r\n    \"кефир\",\r\n    \"кефир\",\r\n    \"кефир\",\r\n    \"кефир\",\r\n    \"кефир\",\r\n    \"кефир\",\r\n    \"кефир\",\r\n    \"кефир\",\r\n    \"кефир\",\r\n    \"кефир\",\r\n    \"кефир\",\r\n    \"кефир\",\r\n    \"кефир\",\r\n    \"кефир\",\r\n    \"кефир\",\r\n    \"кефир\",\r\n    \"кефир\",\r\n    \"кефир\",\r\n    \"кефир\",\r\n    \"кефир\",\r\n    \"кефир\",\r\n    \"кефир\",\r\n    \"кефир\",\r\n    \"кефир\",\r\n    \"кефир\",\r\n    \"кефир\",\r\n    \"кефир\",\r\n    \"кефир\",\r\n    \"кефир\",\r\n    \"кефир\",\r\n    \"мука\"\r\n  ],\r\n  \"refresh\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://cooking-exksifnzaxjuxel-api-qa.gsu-ai.com/getRecipe",
+							"protocol": "https",
+							"host": [
+								"cooking-exksifnzaxjuxel-api-qa",
+								"gsu-ai",
+								"com"
+							],
+							"path": [
+								"getRecipe"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "400 no dish name",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "ru-RU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"dishName\": \"\",\r\n  \"products\": [\r\n    \"ке\",\r\n\"ди\"\r\n  ],\r\n  \"refresh\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://cooking-exksifnzaxjuxel-api-qa.gsu-ai.com/getRecipe",
+							"protocol": "https",
+							"host": [
+								"cooking-exksifnzaxjuxel-api-qa",
+								"gsu-ai",
+								"com"
+							],
+							"path": [
+								"getRecipe"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "400 less than 2 products",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "ru-RU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"dishName\": \"блины\",\r\n  \"products\": [\r\n    \"кефир\"\r\n  ],\r\n  \"refresh\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://cooking-exksifnzaxjuxel-api-qa.gsu-ai.com/getRecipe",
+							"protocol": "https",
+							"host": [
+								"cooking-exksifnzaxjuxel-api-qa",
+								"gsu-ai",
+								"com"
+							],
+							"path": [
+								"getRecipe"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "404  link",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "ru-RU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"dishName\": \"string\",\r\n  \"products\": [\r\n    \"молоко\",\r\n\"мука\"\r\n  ],\r\n  \"refresh\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://cooking-exksifnzaxjuxel-api-qa.gsu-ai.com/getRecip",
+							"protocol": "https",
+							"host": [
+								"cooking-exksifnzaxjuxel-api-qa",
+								"gsu-ai",
+								"com"
+							],
+							"path": [
+								"getRecip"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
